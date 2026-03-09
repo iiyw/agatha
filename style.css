@@ -12,31 +12,29 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-background:linear-gradient(135deg,#ff9eb5,#ff6f91);
-
 font-family:Poppins;
+
+background:linear-gradient(135deg,#ff9eb5,#ff6f91);
 
 overflow:hidden;
 
 }
 
-/* container */
+/* card */
 
-.container{
+.card{
 
 background:white;
 
-padding:50px;
+padding:40px;
 
-border-radius:25px;
+border-radius:20px;
 
-width:360px;
+width:320px;
 
 text-align:center;
 
-box-shadow:0 20px 40px rgba(0,0,0,0.25);
-
-animation:fade 1.2s;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
 
 }
 
@@ -46,7 +44,7 @@ h1{
 
 font-family:Great Vibes;
 
-font-size:48px;
+font-size:46px;
 
 color:#ff4d6d;
 
@@ -60,7 +58,7 @@ margin-bottom:10px;
 
 color:#666;
 
-margin-bottom:30px;
+margin-bottom:25px;
 
 }
 
@@ -68,116 +66,49 @@ margin-bottom:30px;
 
 button{
 
-padding:14px 35px;
+padding:12px 30px;
 
 border:none;
 
-border-radius:30px;
+border-radius:25px;
 
-background:linear-gradient(45deg,#ff4d6d,#ff758c);
+background:#ff4d6d;
 
 color:white;
 
-font-size:16px;
+font-size:15px;
 
 cursor:pointer;
 
 transition:0.3s;
 
-box-shadow:0 10px 20px rgba(255,77,109,0.4);
-
 }
 
 button:hover{
 
-transform:scale(1.1);
+transform:scale(1.08);
 
 }
 
 /* mensagem */
 
-.mensagem{
+#mensagem{
 
-margin-top:30px;
+margin-top:25px;
 
-font-size:16px;
-
-color:#444;
+font-size:15px;
 
 line-height:1.7;
 
-opacity:0;
+color:#444;
 
-transform:translateY(20px);
-
-transition:0.8s;
+display:none;
 
 }
 
-.mensagem.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-.nome{
+#mensagem span{
 
 color:#ff4d6d;
-
 font-weight:500;
-
-}
-
-/* animação entrada */
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-transform:scale(0.9);
-
-}
-
-to{
-
-opacity:1;
-transform:scale(1);
-
-}
-
-}
-
-/* corações */
-
-.heart{
-
-position:fixed;
-
-top:-10px;
-
-font-size:20px;
-
-animation:fall linear forwards;
-
-}
-
-@keyframes fall{
-
-0%{
-
-transform:translateY(-10vh);
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(110vh);
-opacity:0;
-
-}
 
 }
