@@ -7,6 +7,7 @@ box-sizing:border-box;
 body{
 
 height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
@@ -21,97 +22,83 @@ overflow:hidden;
 
 /* container */
 
-.wrapper{
-
-position:relative;
-width:340px;
-height:260px;
-
-}
-
-/* envelope */
-
-.envelope{
-
-position:absolute;
-bottom:0;
-
-width:100%;
-height:200px;
-
-background:#ff4d6d;
-
-border-radius:10px;
-
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
-
-z-index:3;
-
-}
-
-/* tampa */
-
-.flap{
-
-position:absolute;
-
-width:100%;
-height:100%;
-
-background:#ff6f91;
-
-clip-path:polygon(0 0,100% 0,50% 60%);
-
-transform-origin:top;
-
-transition:1s;
-
-z-index:4;
-
-}
-
-/* carta */
-
-.letter{
-
-position:absolute;
-
-left:10px;
-bottom:20px;
-
-width:320px;
+.container{
 
 background:white;
 
-padding:25px;
+padding:50px;
 
-border-radius:12px;
+border-radius:25px;
+
+width:360px;
 
 text-align:center;
 
-box-shadow:0 15px 35px rgba(0,0,0,0.25);
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
 
-transform:translateY(140px);
-
-transition:1.2s;
-
-z-index:1;
+animation:fade 1.2s;
 
 }
 
-.letter h1{
+/* titulo */
+
+h1{
 
 font-family:Great Vibes;
 
-color:#ff4d6d;
+font-size:48px;
 
-font-size:42px;
+color:#ff4d6d;
 
 margin-bottom:10px;
 
 }
 
-.letter p{
+/* subtitulo */
+
+.subtitle{
+
+color:#666;
+
+margin-bottom:30px;
+
+}
+
+/* botão */
+
+button{
+
+padding:14px 35px;
+
+border:none;
+
+border-radius:30px;
+
+background:linear-gradient(45deg,#ff4d6d,#ff758c);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 10px 20px rgba(255,77,109,0.4);
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+
+}
+
+/* mensagem */
+
+.mensagem{
+
+margin-top:30px;
 
 font-size:16px;
 
@@ -119,9 +106,23 @@ color:#444;
 
 line-height:1.7;
 
+opacity:0;
+
+transform:translateY(20px);
+
+transition:0.8s;
+
 }
 
-.name{
+.mensagem.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.nome{
 
 color:#ff4d6d;
 
@@ -129,42 +130,23 @@ font-weight:500;
 
 }
 
-/* botão */
+/* animação entrada */
 
-.open-btn{
+@keyframes fade{
 
-position:absolute;
+from{
 
-left:50%;
-top:60%;
-
-transform:translate(-50%,-50%);
-
-padding:10px 25px;
-
-border:none;
-
-border-radius:20px;
-
-background:white;
-
-cursor:pointer;
-
-z-index:5;
+opacity:0;
+transform:scale(0.9);
 
 }
 
-/* animação abrir */
+to{
 
-.open .flap{
-
-transform:rotateX(180deg);
+opacity:1;
+transform:scale(1);
 
 }
-
-.open .letter{
-
-transform:translateY(-170px);
 
 }
 
