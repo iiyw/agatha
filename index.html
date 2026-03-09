@@ -1,58 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Para Agatha ❤️</title>
+<title>Para Você</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<h1>Agatha ❤️</h1>
+<h1>💌 Uma Mensagem</h1>
 
-<p class="subtitle">Tenho algo especial para você</p>
+<p class="preview">
+Clique no botão abaixo...
+</p>
 
-<button id="botao">Clique aqui</button>
+<button onclick="mostrarCarta()">Abrir</button>
 
-<div id="mensagem">
+<div id="carta" class="carta">
 
 <p>
+Oi...  
+Eu só queria te lembrar de uma coisa simples.
+</p>
 
-🌹 Feliz Dia das Mulheres, <span>Agatha</span>.
+<p>
+Às vezes a gente esquece o quanto algumas pessoas
+fazem diferença na nossa vida.
+</p>
 
-<br><br>
+<p>
+E você é uma delas.
+</p>
 
-Você é uma mulher incrível, linda e muito especial.
-
-<br><br>
-
-Seu sorriso ilumina meus dias e sua presença deixa tudo melhor.
-
-<br><br>
-
-Hoje é o seu dia, mas para mim todos os dias são especiais por ter você.
-
-<br><br>
-
-Com carinho ❤️
-
+<p>
+💗
 </p>
 
 </div>
 
 </div>
 
-<script src="script.js"></script>
+<script>
+
+function mostrarCarta(){
+document.getElementById("carta").style.display = "block"
+}
+
+</script>
 
 </body>
 </html>
