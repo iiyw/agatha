@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Para Agatha ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,44 +19,44 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background: linear-gradient(135deg,#ff758c,#ff7eb3);
+background: radial-gradient(circle,#ff9eb5,#ff6f91);
 font-family:Poppins;
 overflow:hidden;
 }
 
-/* card principal */
+/* card */
 
 .card{
 background:white;
 padding:50px;
-border-radius:25px;
-text-align:center;
+border-radius:30px;
 width:420px;
-box-shadow:0 20px 40px rgba(0,0,0,0.25);
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
 animation:fade 1.5s;
 z-index:2;
 }
 
 h1{
 font-family:'Great Vibes';
-font-size:48px;
+font-size:55px;
 color:#ff4d6d;
 margin-bottom:15px;
 }
 
 .subtitle{
-color:#555;
-margin-bottom:30px;
+color:#666;
+margin-bottom:35px;
 }
 
 /* botão */
 
 button{
-padding:16px 40px;
+padding:16px 45px;
 font-size:18px;
 border:none;
 border-radius:50px;
-background: linear-gradient(45deg,#ff4d6d,#ff758c);
+background:linear-gradient(45deg,#ff4d6d,#ff758c);
 color:white;
 cursor:pointer;
 transition:0.3s;
@@ -67,6 +67,12 @@ button:hover{
 transform:scale(1.1);
 }
 
+button.hide{
+opacity:0;
+transform:scale(0.7);
+pointer-events:none;
+}
+
 /* mensagem */
 
 .message{
@@ -74,8 +80,9 @@ margin-top:30px;
 font-size:20px;
 color:#444;
 opacity:0;
-transform:translateY(20px);
-transition:0.8s;
+transform:translateY(30px);
+transition:1s;
+line-height:1.6;
 }
 
 .message.show{
@@ -86,6 +93,7 @@ transform:translateY(0);
 .name{
 color:#ff4d6d;
 font-weight:500;
+font-size:22px;
 }
 
 /* corações */
@@ -98,21 +106,26 @@ animation:fall linear forwards;
 }
 
 @keyframes fall{
+
 0%{
 transform:translateY(-10vh);
 opacity:1;
 }
+
 100%{
 transform:translateY(110vh);
 opacity:0;
 }
+
 }
 
 @keyframes fade{
+
 from{
 opacity:0;
 transform:scale(0.9);
 }
+
 to{
 opacity:1;
 transform:scale(1);
@@ -133,22 +146,34 @@ transform:scale(1);
 Tenho algo especial para você...
 </div>
 
-<button onclick="mostrarMensagem()">
+<button id="botao" onclick="abrirMensagem()">
 Clique aqui
 </button>
 
 <div class="message" id="msg">
 
-🌹 Feliz Dia das Mulheres, <span class="name">Agatha</span>!  
+🌹 Feliz Dia das Mulheres,  
+<span class="name">Agatha</span>.
 
 <br><br>
 
-Você é uma mulher incrível, linda e muito especial.  
-Que seu dia seja cheio de amor, sorrisos e momentos felizes.  
+Entre todas as mulheres incríveis do mundo,  
+você é a que ilumina os meus dias.
 
 <br><br>
 
-Obrigado por existir. ❤️
+Seu sorriso muda tudo,  
+sua presença deixa tudo mais bonito.
+
+<br><br>
+
+Hoje é o seu dia,  
+mas pra mim todo dia é especial  
+por ter você na minha vida.
+
+<br><br>
+
+❤️
 
 </div>
 
@@ -156,22 +181,35 @@ Obrigado por existir. ❤️
 
 <script>
 
-function mostrarMensagem(){
+function abrirMensagem(){
+
+document.getElementById("botao").classList.add("hide")
+
+setTimeout(()=>{
 document.getElementById("msg").classList.add("show")
+},500)
+
+/* explosão de corações */
+
+for(let i=0;i<25;i++){
+criarCoracao()
 }
 
-/* corações */
+}
+
+/* corações caindo */
 
 function criarCoracao(){
 
-const heart = document.createElement("div")
+const heart=document.createElement("div")
+
 heart.classList.add("heart")
 
 heart.innerHTML="❤️"
 
 heart.style.left=Math.random()*100+"vw"
 heart.style.animationDuration=(3+Math.random()*3)+"s"
-heart.style.fontSize=(16+Math.random()*20)+"px"
+heart.style.fontSize=(16+Math.random()*24)+"px"
 
 document.body.appendChild(heart)
 
@@ -181,7 +219,7 @@ heart.remove()
 
 }
 
-setInterval(criarCoracao,250)
+setInterval(criarCoracao,350)
 
 </script>
 
