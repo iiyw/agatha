@@ -1,8 +1,10 @@
-function abrirCarta(){
+function mostrarMensagem(){
 
-document.getElementById("wrapper").classList.add("open")
+document.getElementById("mensagem").classList.add("show")
 
-for(let i=0;i<30;i++){
+document.getElementById("botao").style.display="none"
+
+for(let i=0;i<25;i++){
 
 criarCoracao()
 
