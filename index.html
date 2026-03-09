@@ -24,25 +24,29 @@ font-family:Poppins;
 overflow:hidden;
 }
 
+/* container */
+
+.wrapper{
+position:relative;
+width:350px;
+height:260px;
+}
+
 /* envelope */
 
 .envelope{
-position:relative;
-width:340px;
-height:220px;
-cursor:pointer;
-}
-
-.envelope-body{
 position:absolute;
 width:100%;
-height:100%;
+height:200px;
+bottom:0;
 background:#ff4d6d;
 border-radius:8px;
-z-index:2;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+z-index:3;
 }
 
-/* tampa do envelope */
+/* tampa */
 
 .flap{
 position:absolute;
@@ -52,22 +56,22 @@ background:#ff6f91;
 clip-path:polygon(0 0,100% 0,50% 60%);
 transform-origin:top;
 transition:1s;
-z-index:3;
+z-index:4;
 }
 
 /* carta */
 
 .letter{
 position:absolute;
-bottom:10px;
-left:10px;
 width:320px;
-height:200px;
+left:15px;
+bottom:20px;
 background:white;
 border-radius:10px;
 padding:25px;
 text-align:center;
 box-shadow:0 15px 35px rgba(0,0,0,0.25);
+
 transform:translateY(120px);
 transition:1.2s;
 z-index:1;
@@ -75,13 +79,13 @@ z-index:1;
 
 .letter h1{
 font-family:'Great Vibes';
-font-size:42px;
+font-size:40px;
 color:#ff4d6d;
 margin-bottom:10px;
 }
 
 .text{
-font-size:17px;
+font-size:16px;
 color:#444;
 line-height:1.7;
 }
@@ -91,6 +95,21 @@ color:#ff4d6d;
 font-weight:500;
 }
 
+/* botão */
+
+.open-btn{
+position:absolute;
+left:50%;
+top:60%;
+transform:translate(-50%,-50%);
+padding:10px 24px;
+border:none;
+border-radius:20px;
+background:white;
+cursor:pointer;
+z-index:5;
+}
+
 /* estado aberto */
 
 .open .flap{
@@ -98,27 +117,7 @@ transform:rotateX(180deg);
 }
 
 .open .letter{
-transform:translateY(-180px) scale(1.1);
-}
-
-/* botão */
-
-.open-btn{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-z-index:4;
-padding:10px 25px;
-border:none;
-border-radius:30px;
-background:white;
-cursor:pointer;
-font-size:15px;
-}
-
-.open .open-btn{
-display:none;
+transform:translateY(-180px);
 }
 
 /* corações */
@@ -149,13 +148,7 @@ opacity:0;
 
 <body>
 
-<div class="envelope" id="env">
-
-<div class="flap"></div>
-
-<div class="envelope-body"></div>
-
-<button class="open-btn" onclick="abrir()">Abrir</button>
+<div class="wrapper" id="wrapper">
 
 <div class="letter">
 
@@ -190,15 +183,23 @@ Com carinho ❤️
 
 </div>
 
+<div class="envelope">
+
+<div class="flap"></div>
+
+<button class="open-btn" onclick="abrir()">Abrir</button>
+
+</div>
+
 </div>
 
 <script>
 
 function abrir(){
 
-document.getElementById("env").classList.add("open")
+document.getElementById("wrapper").classList.add("open")
 
-for(let i=0;i<35;i++){
+for(let i=0;i<30;i++){
 criarCoracao()
 }
 
