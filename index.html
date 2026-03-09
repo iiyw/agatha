@@ -27,68 +27,63 @@ overflow:hidden;
 /* envelope */
 
 .envelope{
-width:320px;
-height:200px;
-background:#ff4d6d;
 position:relative;
-border-radius:10px;
-display:flex;
-justify-content:center;
-align-items:center;
+width:340px;
+height:220px;
 cursor:pointer;
-box-shadow:0 20px 40px rgba(0,0,0,0.3);
-transition:0.8s;
 }
 
-.envelope::before{
-content:"";
+.envelope-body{
 position:absolute;
-top:0;
-left:0;
+width:100%;
+height:100%;
+background:#ff4d6d;
+border-radius:8px;
+z-index:2;
+}
+
+/* tampa do envelope */
+
+.flap{
+position:absolute;
 width:100%;
 height:100%;
 background:#ff6f91;
-clip-path:polygon(0 0,50% 60%,100% 0);
-transition:0.8s;
-}
-
-.open-btn{
-position:relative;
-z-index:2;
-background:white;
-padding:12px 28px;
-border-radius:30px;
-border:none;
-font-size:16px;
-cursor:pointer;
+clip-path:polygon(0 0,100% 0,50% 60%);
+transform-origin:top;
+transition:1s;
+z-index:3;
 }
 
 /* carta */
 
 .letter{
 position:absolute;
+bottom:10px;
+left:10px;
 width:320px;
+height:200px;
 background:white;
-padding:30px;
-border-radius:12px;
+border-radius:10px;
+padding:25px;
 text-align:center;
 box-shadow:0 15px 35px rgba(0,0,0,0.25);
-transform:translateY(60px) scale(0.8);
-opacity:0;
-transition:1s;
+transform:translateY(120px);
+transition:1.2s;
+z-index:1;
 }
 
 .letter h1{
 font-family:'Great Vibes';
-color:#ff4d6d;
 font-size:42px;
-margin-bottom:15px;
+color:#ff4d6d;
+margin-bottom:10px;
 }
 
 .text{
+font-size:17px;
 color:#444;
 line-height:1.7;
-font-size:18px;
 }
 
 .name{
@@ -96,16 +91,34 @@ color:#ff4d6d;
 font-weight:500;
 }
 
-/* carta aberta */
+/* estado aberto */
 
-.open .letter{
-transform:translateY(-40px) scale(1);
-opacity:1;
+.open .flap{
+transform:rotateX(180deg);
 }
 
-.open .envelope{
-transform:scale(0.9);
-opacity:0;
+.open .letter{
+transform:translateY(-180px) scale(1.1);
+}
+
+/* botão */
+
+.open-btn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:4;
+padding:10px 25px;
+border:none;
+border-radius:30px;
+background:white;
+cursor:pointer;
+font-size:15px;
+}
+
+.open .open-btn{
+display:none;
 }
 
 /* corações */
@@ -136,11 +149,13 @@ opacity:0;
 
 <body>
 
-<div id="container">
+<div class="envelope" id="env">
 
-<div class="envelope" onclick="abrirCarta()">
-<button class="open-btn">Abrir</button>
-</div>
+<div class="flap"></div>
+
+<div class="envelope-body"></div>
+
+<button class="open-btn" onclick="abrir()">Abrir</button>
 
 <div class="letter">
 
@@ -154,12 +169,12 @@ opacity:0;
 <br><br>
 
 Você é uma mulher incrível,  
-linda, forte e especial.
+linda, forte e muito especial.
 
 <br><br>
 
 Seu sorriso ilumina meus dias  
-e sua presença faz tudo ficar melhor.
+e sua presença deixa tudo melhor.
 
 <br><br>
 
@@ -179,17 +194,15 @@ Com carinho ❤️
 
 <script>
 
-function abrirCarta(){
+function abrir(){
 
-document.getElementById("container").classList.add("open")
+document.getElementById("env").classList.add("open")
 
-for(let i=0;i<30;i++){
+for(let i=0;i<35;i++){
 criarCoracao()
 }
 
 }
-
-/* corações */
 
 function criarCoracao(){
 
