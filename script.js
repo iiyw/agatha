@@ -1,39 +1,10 @@
-function mostrarMensagem(){
+const botao = document.getElementById("botao")
+const mensagem = document.getElementById("mensagem")
 
-document.getElementById("mensagem").classList.add("show")
+botao.onclick = function(){
 
-document.getElementById("botao").style.display="none"
+mensagem.style.display = "block"
 
-for(let i=0;i<25;i++){
-
-criarCoracao()
-
-}
+botao.style.display = "none"
 
 }
-
-function criarCoracao(){
-
-const heart=document.createElement("div")
-
-heart.classList.add("heart")
-
-heart.innerHTML="❤️"
-
-heart.style.left=Math.random()*100+"vw"
-
-heart.style.animationDuration=(3+Math.random()*3)+"s"
-
-heart.style.fontSize=(16+Math.random()*20)+"px"
-
-document.body.appendChild(heart)
-
-setTimeout(()=>{
-
-heart.remove()
-
-},6000)
-
-}
-
-setInterval(criarCoracao,400)
