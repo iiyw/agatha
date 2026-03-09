@@ -1,149 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <title>Para Agatha ❤️</title>
 
+<link rel="stylesheet" href="style.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff9eb5,#ff6f91);
-font-family:Poppins;
-overflow:hidden;
-}
-
-/* container */
-
-.wrapper{
-position:relative;
-width:350px;
-height:260px;
-}
-
-/* envelope */
-
-.envelope{
-position:absolute;
-width:100%;
-height:200px;
-bottom:0;
-background:#ff4d6d;
-border-radius:8px;
-overflow:hidden;
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
-z-index:3;
-}
-
-/* tampa */
-
-.flap{
-position:absolute;
-width:100%;
-height:100%;
-background:#ff6f91;
-clip-path:polygon(0 0,100% 0,50% 60%);
-transform-origin:top;
-transition:1s;
-z-index:4;
-}
-
-/* carta */
-
-.letter{
-position:absolute;
-width:320px;
-left:15px;
-bottom:20px;
-background:white;
-border-radius:10px;
-padding:25px;
-text-align:center;
-box-shadow:0 15px 35px rgba(0,0,0,0.25);
-
-transform:translateY(120px);
-transition:1.2s;
-z-index:1;
-}
-
-.letter h1{
-font-family:'Great Vibes';
-font-size:40px;
-color:#ff4d6d;
-margin-bottom:10px;
-}
-
-.text{
-font-size:16px;
-color:#444;
-line-height:1.7;
-}
-
-.name{
-color:#ff4d6d;
-font-weight:500;
-}
-
-/* botão */
-
-.open-btn{
-position:absolute;
-left:50%;
-top:60%;
-transform:translate(-50%,-50%);
-padding:10px 24px;
-border:none;
-border-radius:20px;
-background:white;
-cursor:pointer;
-z-index:5;
-}
-
-/* estado aberto */
-
-.open .flap{
-transform:rotateX(180deg);
-}
-
-.open .letter{
-transform:translateY(-180px);
-}
-
-/* corações */
-
-.heart{
-position:fixed;
-top:-10px;
-font-size:20px;
-animation:fall linear forwards;
-}
-
-@keyframes fall{
-
-0%{
-transform:translateY(-10vh);
-opacity:1;
-}
-
-100%{
-transform:translateY(110vh);
-opacity:0;
-}
-
-}
-
-</style>
 </head>
 
 <body>
@@ -154,32 +19,27 @@ opacity:0;
 
 <h1>Agatha ❤️</h1>
 
-<div class="text">
+<p>
 
-🌹 Feliz Dia das Mulheres,  
-<span class="name">Agatha</span>.
-
-<br><br>
-
-Você é uma mulher incrível,  
-linda, forte e muito especial.
+🌹 Feliz Dia das Mulheres, <span class="name">Agatha</span>.
 
 <br><br>
 
-Seu sorriso ilumina meus dias  
-e sua presença deixa tudo melhor.
+Você é uma mulher incrível, linda, forte e muito especial.
 
 <br><br>
 
-Hoje é o seu dia,  
-mas para mim todos os dias  
-são especiais por ter você.
+Seu sorriso ilumina meus dias e sua presença deixa tudo melhor.
+
+<br><br>
+
+Hoje é o seu dia, mas para mim todos os dias são especiais por ter você.
 
 <br><br>
 
 Com carinho ❤️
 
-</div>
+</p>
 
 </div>
 
@@ -187,47 +47,13 @@ Com carinho ❤️
 
 <div class="flap"></div>
 
-<button class="open-btn" onclick="abrir()">Abrir</button>
+<button class="open-btn" onclick="abrirCarta()">Abrir</button>
 
 </div>
 
 </div>
 
-<script>
-
-function abrir(){
-
-document.getElementById("wrapper").classList.add("open")
-
-for(let i=0;i<30;i++){
-criarCoracao()
-}
-
-}
-
-function criarCoracao(){
-
-const heart=document.createElement("div")
-
-heart.classList.add("heart")
-
-heart.innerHTML="❤️"
-
-heart.style.left=Math.random()*100+"vw"
-heart.style.animationDuration=(3+Math.random()*3)+"s"
-heart.style.fontSize=(16+Math.random()*24)+"px"
-
-document.body.appendChild(heart)
-
-setTimeout(()=>{
-heart.remove()
-},6000)
-
-}
-
-setInterval(criarCoracao,400)
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
