@@ -19,81 +19,93 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background: radial-gradient(circle,#ff9eb5,#ff6f91);
+background:linear-gradient(135deg,#ff9eb5,#ff6f91);
 font-family:Poppins;
 overflow:hidden;
 }
 
-/* card */
+/* envelope */
 
-.card{
-background:white;
-padding:50px;
-border-radius:30px;
-width:420px;
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
-animation:fade 1.5s;
-z-index:2;
+.envelope{
+width:320px;
+height:200px;
+background:#ff4d6d;
+position:relative;
+border-radius:10px;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
+transition:0.8s;
 }
 
-h1{
+.envelope::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#ff6f91;
+clip-path:polygon(0 0,50% 60%,100% 0);
+transition:0.8s;
+}
+
+.open-btn{
+position:relative;
+z-index:2;
+background:white;
+padding:12px 28px;
+border-radius:30px;
+border:none;
+font-size:16px;
+cursor:pointer;
+}
+
+/* carta */
+
+.letter{
+position:absolute;
+width:320px;
+background:white;
+padding:30px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+transform:translateY(60px) scale(0.8);
+opacity:0;
+transition:1s;
+}
+
+.letter h1{
 font-family:'Great Vibes';
-font-size:55px;
 color:#ff4d6d;
+font-size:42px;
 margin-bottom:15px;
 }
 
-.subtitle{
-color:#666;
-margin-bottom:35px;
-}
-
-/* botão */
-
-button{
-padding:16px 45px;
-font-size:18px;
-border:none;
-border-radius:50px;
-background:linear-gradient(45deg,#ff4d6d,#ff758c);
-color:white;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 10px 20px rgba(255,77,109,0.4);
-}
-
-button:hover{
-transform:scale(1.1);
-}
-
-button.hide{
-opacity:0;
-transform:scale(0.7);
-pointer-events:none;
-}
-
-/* mensagem */
-
-.message{
-margin-top:30px;
-font-size:20px;
+.text{
 color:#444;
-opacity:0;
-transform:translateY(30px);
-transition:1s;
-line-height:1.6;
-}
-
-.message.show{
-opacity:1;
-transform:translateY(0);
+line-height:1.7;
+font-size:18px;
 }
 
 .name{
 color:#ff4d6d;
 font-weight:500;
-font-size:22px;
+}
+
+/* carta aberta */
+
+.open .letter{
+transform:translateY(-40px) scale(1);
+opacity:1;
+}
+
+.open .envelope{
+transform:scale(0.9);
+opacity:0;
 }
 
 /* corações */
@@ -119,61 +131,47 @@ opacity:0;
 
 }
 
-@keyframes fade{
-
-from{
-opacity:0;
-transform:scale(0.9);
-}
-
-to{
-opacity:1;
-transform:scale(1);
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div id="container">
+
+<div class="envelope" onclick="abrirCarta()">
+<button class="open-btn">Abrir</button>
+</div>
+
+<div class="letter">
 
 <h1>Agatha ❤️</h1>
 
-<div class="subtitle">
-Tenho algo especial para você...
-</div>
-
-<button id="botao" onclick="abrirMensagem()">
-Clique aqui
-</button>
-
-<div class="message" id="msg">
+<div class="text">
 
 🌹 Feliz Dia das Mulheres,  
 <span class="name">Agatha</span>.
 
 <br><br>
 
-Entre todas as mulheres incríveis do mundo,  
-você é a que ilumina os meus dias.
+Você é uma mulher incrível,  
+linda, forte e especial.
 
 <br><br>
 
-Seu sorriso muda tudo,  
-sua presença deixa tudo mais bonito.
+Seu sorriso ilumina meus dias  
+e sua presença faz tudo ficar melhor.
 
 <br><br>
 
 Hoje é o seu dia,  
-mas pra mim todo dia é especial  
-por ter você na minha vida.
+mas para mim todos os dias  
+são especiais por ter você.
 
 <br><br>
 
-❤️
+Com carinho ❤️
+
+</div>
 
 </div>
 
@@ -181,23 +179,17 @@ por ter você na minha vida.
 
 <script>
 
-function abrirMensagem(){
+function abrirCarta(){
 
-document.getElementById("botao").classList.add("hide")
+document.getElementById("container").classList.add("open")
 
-setTimeout(()=>{
-document.getElementById("msg").classList.add("show")
-},500)
-
-/* explosão de corações */
-
-for(let i=0;i<25;i++){
+for(let i=0;i<30;i++){
 criarCoracao()
 }
 
 }
 
-/* corações caindo */
+/* corações */
 
 function criarCoracao(){
 
@@ -219,7 +211,7 @@ heart.remove()
 
 }
 
-setInterval(criarCoracao,350)
+setInterval(criarCoracao,400)
 
 </script>
 
