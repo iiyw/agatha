@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para Agatha ❤️</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+font-family: Arial, sans-serif;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+z-index:10;
+}
+
+button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:12px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#mensagem{
+margin-top:20px;
+font-size:20px;
+color:#333;
+display:none;
+}
+
+/* corações */
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Tenho algo para você 💌</h2>
+
+<button onclick="mostrarMensagem()">
+Clique aqui, Agatha
+</button>
+
+<div id="mensagem">
+🌹 Feliz Dia das Mulheres, Agatha!  
+<br><br>
+Você é uma mulher incrível, linda e muito especial.  
+Que seu dia seja cheio de carinho, sorrisos e tudo que te faça feliz. ❤️
+</div>
+
+</div>
+
+<script>
+
+function mostrarMensagem(){
+document.getElementById("mensagem").style.display = "block";
+}
+
+/* criar corações caindo */
+
+function criarCoracao(){
+
+const heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.animationDuration = (3 + Math.random()*3) + "s";
+heart.style.fontSize = (15 + Math.random()*20) + "px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(criarCoracao,300);
+
+</script>
+
+</body>
+</html>
